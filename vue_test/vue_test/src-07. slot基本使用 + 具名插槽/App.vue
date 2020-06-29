@@ -1,7 +1,19 @@
 <template>
 	<div id="app">
 		<h1>app组件</h1>
-    <Home></Home>
+    <Home>
+      <!--<p>我是往Home组件插入的slot内容</p>-->
+      <template v-slot:left>
+        <p>我是左护法</p>
+      </template>
+
+      <p>我是主公</p>
+
+      <template v-slot:right>
+        <p>我是右护法</p>
+      </template>
+
+    </Home>
     <Personal></Personal>
   </div>
 </template>

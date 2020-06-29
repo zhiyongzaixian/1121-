@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import 'lib-flexible/flexible'
-import store from './store'
 
 
 Vue.config.productionTip = false
@@ -26,8 +25,7 @@ Vue.prototype.$Bus = new Vue()
 
 const vm = new Vue({
   render: h => h(App),
-  store
 }).$mount('#app')
 
 vm.test = 'abc'
-// console.log('vm: ', vm);
+console.log('vm: ', vm);

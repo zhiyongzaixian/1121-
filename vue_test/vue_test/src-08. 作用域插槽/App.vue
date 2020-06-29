@@ -1,7 +1,17 @@
 <template>
 	<div id="app">
 		<h1>app组件</h1>
-    <Home></Home>
+    <Home>
+      <!-- 作用域插槽的基本使用-->
+      <!--<template v-slot:right="mySlotProps">-->
+        <!--<p>lastName &#45;&#45;&#45;&#45; {{mySlotProps.user.lastName}}</p>-->
+      <!--</template>-->
+
+      <!-- 解构props-->
+      <template v-slot:right="{user}">
+        <p>lastName ---- {{user.lastName}}</p>
+      </template>
+    </Home>
     <Personal></Personal>
   </div>
 </template>
