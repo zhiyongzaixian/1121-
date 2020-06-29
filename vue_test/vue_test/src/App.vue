@@ -52,13 +52,15 @@
     },
     errorCaptured(errObj, errVM, errMsg){
 	    console.log('----App  errorCaptured -----');
-	    console.log(errObj.message);
-	    console.log(errObj);
+	    // console.log(errObj.message);
+	    // console.log(errObj);
 	    // errVM: 错误的组件实例，
-	    console.log(errVM);
+	    // console.log(errVM);
 	    // this === 子组件errorComponent
       errVM.getStr(errVM.str)
-	    console.log(errMsg);
+	    // console.log(errMsg);
+
+      // return false // 阻止错误继续向上传播
     }
 	}
 </script>
