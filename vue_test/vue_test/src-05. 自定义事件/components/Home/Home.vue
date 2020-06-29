@@ -10,9 +10,12 @@
     props: ['getHomeData'],
     mounted(){
       console.log('--- Home mounted ----');
-      console.log(this);
       this.getHomeData('home传递的数据')
-      this.$Bus.$emit('myEventBus', 'home组件传递的数据')
+      // this.$emit('myEvent')
+      // setTimeout(() => {
+      //   console.log('setTimeout');
+      //   this.$emit('myEvent')
+      // }, 2000)
     },
     methods:  {
       handleClick(){

@@ -27,14 +27,11 @@
     //     console.log(' 父组件$on绑定的事件');
     //   })
     // },
-    beforeMount(){
-      this.$Bus.$on('myEventBus', (msg) => {
-        console.log('事件总线绑定的事件： ', msg);
-      })
-
-    },
     mounted(){
 	    console.log('app mounted');
+      this.$refs.home.$on('myEvent', (msg) => {
+        console.log(' 父组件$on绑定的事件', msg);
+      })
     }
 	}
 </script>
