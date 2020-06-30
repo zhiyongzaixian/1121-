@@ -10,7 +10,6 @@ import Index from  '../pages/index/index.vue'
 import Cart from  '../pages/cart/cart.vue'
 import Personal from  '../pages/personal/personal.vue'
 import CateGory from  '../pages/cateGory/cateGory.vue'
-import Login from  '../pages/login/login.vue'
 import CateRight from '../pages/cateGory/cateRight/cateRight.vue'
 
 /*
@@ -25,12 +24,19 @@ import CateRight from '../pages/cateGory/cateRight/cateRight.vue'
 
 export default [
 	{
-		path: '/home',
+		path: '/home/:id',
 		component: Index,
 		name: 'Home',
 		meta: { // 用来描述当前路由自身的
 			isShowFooter: true // 在当前的路由下显示底部footer
 		},
+		// props: true, // 声明将$route.params的数据导入至 组件内部的props对象
+		// props: { // 对象模式：用于自定义参数数据
+		// 	a: 1,
+		// 	b: 2
+		// }
+		// 函数模式： 自定义数据 + route对象信息
+		props: route => ({a: 1, b: 2, id:route.params.id})
 	},
 	{
 		path: '/cateGory',
@@ -79,14 +85,10 @@ export default [
 	// 	redirect: '/home/1'
 	// }
  
-	{
-		path:'/login',
-		component: Login
-	},
 	
 	// query参数
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/cart'
   }
 ]
