@@ -6,12 +6,22 @@
 		component: '路由组件'
 	}
  */
-import Index from  '../pages/index/index.vue'
-import Cart from  '../pages/cart/cart.vue'
-import Personal from  '../pages/personal/personal.vue'
-import CateGory from  '../pages/cateGory/cateGory.vue'
-import Login from  '../pages/login/login.vue'
-import CateRight from '../pages/cateGory/cateRight/cateRight.vue'
+// 静态引入
+// import Index from  '../pages/index/index.vue'
+// import Cart from  '../pages/cart/cart.vue'
+// import Personal from  '../pages/personal/personal.vue'
+// import CateGory from  '../pages/cateGory/cateGory.vue'
+// import Login from  '../pages/login/login.vue'
+// import CateRight from '../pages/cateGory/cateRight/cateRight.vue'
+
+
+// 动态引入
+const Index = () => import('../pages/index/index.vue')
+const Cart = () => import('../pages/cart/cart.vue')
+const Personal = () => import('../pages/personal/personal.vue')
+const CateGory = () => import('../pages/cateGory/cateGory.vue')
+const Login = () => import('../pages/login/login.vue')
+const CateRight = () => import('../pages/cateGory/cateRight/cateRight.vue')
 
 /*
 	元信息：

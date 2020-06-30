@@ -8,9 +8,7 @@
 <script>
 
 	export default {
-		mounted(){
-		  this.play('我是一个弹窗')
-		}
+
 	}
 </script>
 
