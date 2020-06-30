@@ -3,16 +3,7 @@
 
 const state = {
   initData: 'total初始化测试数据',
-  personArr: [
-    {
-      name:'kobe',
-      age: 42
-    },
-    {
-      name:'wade',
-      age: 38
-    }
-  ]
+  personArr: []
 }
 
 
@@ -32,16 +23,9 @@ const actions = {
 *   3. 一切的设计为了数据的安全
 * */
 const mutations = {
-  changePersonArr(state){
+  changePersonArr(state, personArr){
+    state.personArr = personArr
     
-    // 执行异步任务获取数据，然后修改
-    setTimeout(() => {
-      const person = {
-        name: 'curry',
-        age: 32
-      }
-      state.personArr.push(person)
-    }, 2000)
   }
 }
 

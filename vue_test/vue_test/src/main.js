@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import 'lib-flexible/flexible'
 import store from './store'
-
+import router from './router'
 
 Vue.config.productionTip = false
 // 全局获取错误
@@ -26,7 +26,8 @@ Vue.prototype.$Bus = new Vue()
 
 const vm = new Vue({
   render: h => h(App),
-  store
+  store,
+  router
 }).$mount('#app')
 
 vm.test = 'abc'

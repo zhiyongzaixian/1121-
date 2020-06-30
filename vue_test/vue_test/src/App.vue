@@ -1,8 +1,14 @@
 <template>
 	<div id="app">
 		<h1>app组件</h1>
-    <Home></Home>
-    <Personal></Personal>
+    <div>
+      <router-link to="/home">Home链接</router-link>  &nbsp;&nbsp;
+      <router-link to="/personal">Personal链接</router-link>
+    </div>
+    <br>
+    <br>
+    <br>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -10,10 +16,10 @@
   import Home from './components/Home/Home'
   import Personal from './components/Personal/Personal'
 	export default {
-	  components: {
-      Home,
-      Personal, // 同步加载
-    },
+	  // components: {
+    //   Home,
+    //   Personal, // 同步加载
+    // },
 	}
 </script>
 
