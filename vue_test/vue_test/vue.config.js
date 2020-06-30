@@ -33,5 +33,8 @@ module.exports = {
 					}
 				}
 	    }
-	  }
+	  },
+   productionSourceMap: false // 关闭map文件，减小项目体积
 }
+
+
