@@ -6,6 +6,9 @@
 			<div class="leftContainer">
 				<ul class='navList'>
 					<li class='navItem'>
+						<!--<router-link :to='`/cateGory/right?id=${id}&a=123`'>-->
+							<!--居家生活-->
+						<!--</router-link>-->
 						<router-link :to='`/cateGory/right?id=${id}&a=123`'>
 							居家生活
 						</router-link>
@@ -14,13 +17,13 @@
 						<router-link to='/cateGory/right?id=222'>
 							美食酒水
 						</router-link>
-						
+
 					</li>
 					<li class='navItem'>
 						<router-link to='/cateGory/right?id=333'>
 							个护清洁
 						</router-link>
-						
+
 					</li>
 					<li class='navItem'>
 						----params传参-----
@@ -50,7 +53,7 @@
 					<li class='navItem'>
 						数码家电
 					</li>
-					
+
 				</ul>
 			</div>
 			<!-- 右侧内容区 -->
@@ -63,8 +66,8 @@
 </template>
 
 <script>
-	
-	/* 
+
+	/*
 		需求：
 			1. 点击左侧导航， 左侧导航应该为路由链接
 			2. 点击不同的路由链接请求的均为右侧的路由组件

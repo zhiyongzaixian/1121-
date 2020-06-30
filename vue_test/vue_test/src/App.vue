@@ -1,40 +1,47 @@
 <template>
 	<div id="app">
-		<h1>app组件</h1>
-    <div>
-      <router-link to="/home">Home链接</router-link>  &nbsp;&nbsp;
-      <router-link to="/personal">Personal链接</router-link>
-    </div>
-    <br>
-    <br>
-    <br>
-    <router-view></router-view>
-  </div>
+		<!-- 路由容器 -->
+		<router-view></router-view>
+		<!-- 命名视图测试 -->
+		<router-view name="a"></router-view>
+		<Footer v-if='$route.meta.isShowFooter'></Footer>
+	</div>
 </template>
 
 <script>
-  import Home from './components/Home/Home'
-  import Personal from './components/Personal/Personal'
+	import axios from 'axios'
+	import Footer from './components/footer/footer.vue'
 	export default {
-	  // components: {
-    //   Home,
-    //   Personal, // 同步加载
-    // },
+		components: {
+			Footer
+		},
+		data(){
+			return {
+
+			}
+		},
+		mounted() {
+			// 发送请求
+			axios.create({
+				// baseUrl: '/api'
+			})
+			const wangyiUrl = '/api'
+			axios.get(wangyiUrl + '/xhr/search/searchAutoComplete.json', {
+				params: {
+					keywordPrefix: 'a'
+				}
+			})
+			.then((res) => {
+				console.log(res)
+			})
+		}
 	}
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
-  #app
-    font-size 36px
-    .tabs
-      display flex
-      .tabItem
-        width 50%
-        height 80px
-        line-height 80px
-        text-align center
-        border 1px solid #999
-        box-sizing border-box
+<style lang="stylus" rel="stylesheet/stylus" >
+	*
+		margin 0
+		padding 0
 
 
 </style>
