@@ -1,9 +1,15 @@
-import  React from 'react'
+import  React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import {Route, Link, NavLink, Redirect, Switch} from 'react-router-dom'
-import Home from './components/home/home'
-import Personal from './components/personal/personal'
-import Test from './components/test/test'
+// import Home from './components/home/home'
+// import Personal from './components/personal/personal'
+// import Test from './components/test/test'
+import Loading from './components/loding/loding'
+
+// 动态引入
+const Home = React.lazy(() => import('./components/home/home'))
+const Personal = React.lazy(() => import('./components/personal/personal'))
+const Test = React.lazy(() => import('./components/test/test'))
 
 //  定义组件方式： 1) class 2) 工厂函数
 class App extends React.Component {
@@ -91,16 +97,20 @@ class App extends React.Component {
             3. props： <Router path='路由路径' render={() => 路由组件} 通过标签属性的形式向路由组件导入数据
         */}
         {/*<Route path='/' component={Test} exact></Route>*/}
-        <Switch>
-          {/*params参数*/}
-          {/*<Route path='/home/:a' component={Home}></Route>*/}
-          
-          {/*props参数*/}
-          <Route path='/home' render={() => <Home num={123} a='abc'/>}></Route>
-  
-          <Route path='/personal' component={Personal}></Route>
-          <Redirect to='/home/1'></Redirect>
-        </Switch>
+        
+        <Suspense fallback={<Loading />}>
+          <Switch>
+            {/*params参数*/}
+            {/*<Route path='/home/:a' component={Home}></Route>*/}
+    
+            {/*props参数*/}
+            <Route path='/home' render={() => <Home num={123} a='abc'/>}></Route>
+    
+            <Route path='/personal' component={Personal}></Route>
+            <Redirect to='/home/1'></Redirect>
+          </Switch>
+        </Suspense>
+       
       
         
       </div>

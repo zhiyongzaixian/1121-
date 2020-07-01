@@ -2,9 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>jQuery_test</title>
 </head>
 <body>
-$END$
+
+<div id="box">
+  <p>11111111</p>
+  <p>22222222</p>
+  <p>33333333</p>
+  <div>我是div子元素</div>
+</div>
+
+<script type="text/javascript" src="./lib/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    // console.log($);
+    // console.log(jQuery);
+
+    // 整个页面加载完毕(文档结构，样式，图片。。。)
+    window.onload = function(){
+      console.log('onload()');
+    }
+
+
+    // document.ready 文档加载完毕
+    $(function () {// === document.ready
+      // console.log('document.ready()');
+      $('#box').click(function () {
+        // this原生的js对象
+        //  $()返回值是一个jQuery数组，伪数组
+        // 链式调用前提：jQuery对象的方法返回值一定也是jQuery对象
+        // 关联： promise实例的then方法，能够连续调用then前提是then方法执行的返回结果是promise对象
+        $(this).find('p').css('background', 'red')
+      })
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // (function (window) {
+    //   function jQuery() {
+    //
+    //   }
+    //   jQuery.prototype.find = function () {
+    //     console.log('查找');
+    //   }
+    //   var jquery = new jQuery()
+    //
+    //   window.$ = window.jQuery = jquery;
+    // })(window)
+</script>
 </body>
 </html>
