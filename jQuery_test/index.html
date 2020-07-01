@@ -27,13 +27,50 @@
     // document.ready 文档加载完毕
     $(function () {// === document.ready
       // console.log('document.ready()');
-      $('#box').click(function () {
-        // this原生的js对象
-        //  $()返回值是一个jQuery数组，伪数组
-        // 链式调用前提：jQuery对象的方法返回值一定也是jQuery对象
-        // 关联： promise实例的then方法，能够连续调用then前提是then方法执行的返回结果是promise对象
-        $(this).find('p').css('background', 'red')
+      // $('#box').click(function () {
+      //   // this原生的js对象
+      //   //  $()返回值是一个jQuery数组，伪数组
+      //   // 链式调用前提：jQuery对象的方法返回值一定也是jQuery对象
+      //   // 关联： promise实例的then方法，能够连续调用then前提是then方法执行的返回结果是promise对象
+      //   $(this).find('p').css('background', 'red')
+      // })
+
+
+      // DOM的CRUD操作
+      // $('#box').click(function () {
+      //   // append 添加
+      //   // $(this).append('<p>我是新添加的p标签</p>')
+      //   // $(this).after('<p>我是新添加的p标签</p>')
+      //
+      //   // wrap
+      //   // $(this).wrap('<div id="container">我是box的包裹器</div>')
+      //
+      //   // empty()   remove()
+      //   // $(this).empty() 删除所有的子元素
+      //   $(this).remove() // 移除自身及自身内部的所有元素
+      // })
+
+
+      // 事件: on + 事件名
+      // $('#box').on('click', function () {
+      //   console.log('on绑定的click');
+      // });
+
+      // $('#box').off();
+
+      // 事件委托
+      // $('#box').delegate('p', 'click', function () {
+      //   console.log('delegate绑定的事件委托');
+      //   console.log(this);//子元素
+      // })
+
+      $('#box').on('click', 'p', function () {
+        console.log('on 绑定的事件委托');
+        console.log(this);//子元素
       })
+
+
+      $('#box').append('<p>我是新添加的p标签</p>')
     })
 
 
