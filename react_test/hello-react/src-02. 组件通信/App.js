@@ -1,8 +1,7 @@
 import  React from 'react'
 import ReactDOM from 'react-dom'
-import {Route, Link, NavLink, Redirect} from 'react-router-dom'
+
 import Home from './components/home/home'
-import Personal from './components/personal/personal'
 
 //  定义组件方式： 1) class 2) 工厂函数
 class App extends React.Component {
@@ -50,7 +49,6 @@ class App extends React.Component {
     return (
       <div>
         <h1>App 组件</h1>
-  
         <p>num: {num}</p>
         
         {/*<ul>
@@ -64,17 +62,7 @@ class App extends React.Component {
         <br/>
         <br/>
         <br/>
-  
-        {/*路由链接*/}
-        <Link to='/home'>Home 链接</Link>
-        <Link to='/personal'>Personal 链接</Link>
-        <Redirect to='/home'></Redirect>
-        
-        <br/>
-        {/*注册路由Route === Vue注册路由 + router-view*/}
-        <Route path='/home' component={Home}></Route>
-        <Route path='/personal' component={Personal}></Route>
-        
+        <Home num={num} getHomeData={this.getHomeData}/>
       </div>
     )
   }
