@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>函数节流，防抖</title>
+
+</head>
+<body>
+
+<input id="search" type="text" placeholder="搜索商品">
+<script type="text/javascript">
+    /*
+    * 函数节流 & 防抖
+    * 1. 节流：300ms执行一sendAjax次，最终会执行多次
+    *   应用：搜索框关键字模糊匹配
+    *
+    * 2. 防抖：
+    *   定义： 在高频触发的事件中规定指定的任务不执行，在高频抖动事件结束后执行一次，最终执行一次
+    *   应用: 自定义 响应式
+    * */
+
+    function sendAjax(){
+      console.log('发请求获取商品数据');
+    }
+
+    let isSend = false;
+    // 节流
+    document.getElementById('search').oninput = function () {
+      if(isSend){
+        return
+      }
+
+      isSend = true;
+      sendAjax();
+      setTimeout(() => {
+        isSend = false;
+      }, 300)
+    }
+
+    // 防抖
+    /*
+    * 自适应：百分比 + rem
+    *   1. 根据屏幕大小的改变，页面中的内容 ‘实时’ 发生改变
+    * 响应式：多媒体查询 @media
+    *   1. 根据屏幕大小的 ‘区间范围’ 不同，页面的布局不同，如: 1366-1920区间页面的列表是4列 低于1366的屏幕页面的列表是3列, BootStrap的栅格系统
+    * */
+    let timeoutId;
+    window.addEventListener('resize', () => {
+      timeoutId && clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        sendAjax();
+      }, 2000)
+    })
+</script>
+
+</body>
+</html>
